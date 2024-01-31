@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Detector</title>
+    <link rel="icon" href="/website/img/logo-title.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Noto+Sans&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="layar-dalam">
+                <div class="logo">
+                    <h1>Waste Detector</h1>
+                </div>
+               
+                <div class="menu">
+                    <a href="#" class="tombol-menu">
+                        <span class="garis"></span>
+                        <span class="garis"></span>
+                        <span class="garis"></span>
+                    </a>
+                    <ul>
+                        <li><a href="#Beranda">Beranda</a></li>
+                        <li><a href="#TentangKami">Tentang Kami </a></li>
+                        <li><a href="#Deteksi">Deteksi Sampah</a></li>          
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        </header>
+
+        <main>
+            <section id="Beranda" class="layar-penuh">
+                <div class="intro">
+                    <h4 style="color : #2B874A">Waste Detector</h4>
+                    <p class='jargon' style="color : #6EAB3B">Klasifikasi dan Deteksi Jenis Sampah </p>
+                    <p class="deskripsi">Masih bingung dengan cara memilah sampah?
+                        Atau kurang mengetahui klasifikasi jenis sampah organik dan anorganik secara tepat? 
+                        <br><br>Yuk gunakan <b>Waste Detector</b> sebagai platform yang dapat membantu memudahkan kalian dalam mengklasifikasikan jenis sampah. 
+                    </br></p>
+                    <p style="color : #2B874A">Kenali jenis sampahmu dan lakukan deteksi sekarang!</p>
+                    <p>
+                        <a href="#Deteksi" class="tombol">Deteksi Sampah</a>
+                    </p>
+                </div>
+                <div class="ilustrasi">
+                    <img src="img/sampah.png" alt="">
+                </div>
+        
+            </section>  
+            <section id="TentangKami">
+                <div class="layar-dalam">
+                    <h3 style="text-align: center;">Tentang Kami</h3>
+                </div>
+                <div class="tentangKami">
+                <article class="containerTM">
+                    <div class="foto">
+                        <img src="img/ttgkami.jpg" alt="">
+                    </div>
+                    <div class="paragraf">
+                        <h4 style="color : #086A35 "> Kenali jenis sampahmu dan buang sampah dengan tepat!</h4>
+                        <p><b>Waste Detector</b> merupakan platform digital yang menyediakan layanan klasifikasi dan deteksi sampah berdasarkan Organik dan Anorganik. Platform ini dibuat guna memberikan edukasi serta kemudahan kepada masyarakat dalam mendeteksi sampah di sekitar mereka. Selain itu, pada platform ini juga menggunakan website yang telah terintegrasi dengan sistem pemodelan machine learning sebagai pendeteksi jenis sampah. 
+                        </p>
+                        <p>
+                            Lakukan deteksi dengan scan dan membuka kamera, menggunggah gambar bahkan kalian juga dapat mengunduh gambar kalian loh!. Deteksi sampahmu dan bijak membuang sampah yang sesuai ya!
+                        </p>
+                    </div >
+                </article>
+                </div>
+                <div class="layar-dalam">
+                    <h3 style="text-align: center;">Tim Kami</h3>
+                </div>
+                 <div class="timKami">
+                    <article class="column">
+                        <div>
+                            <img src="img/people.png" alt="">
+                            <h2>
+                                Raifvaldhy Jounias Luppus Melatisudra
+                            </h2>
+                            <p>55201120001</p>
+                        </div>
+                        <div >
+                            <img src="img/people.png" alt="">
+                            <h2>
+                                Nathanael Christiadi Davitama
+                            </h2>
+                            <p>55201120008</p>
+                        </div>
+                        <div>
+                            <img src="img/people.png" alt="">
+                            <h2>
+                                Asep Kurnia
+                            </h2>
+                            <p>55201120036</p>
+                            </p>
+                        </div>
+                </section>
+
+                <section id="Deteksi">
+                    <div class="layar-dalam">
+                      <h3 style="text-align: center">Deteksi</h3>
+                      <p class="ringkasan">
+                        Tekan kamera atau masukan gambar dari galeri Anda untuk mendeteksi jenis sampah
+                      </p>
+                    </div>
+                    <div class="canvas">
+                        <div class="video">
+                            <div class="webcam">
+                            <video id="webcam" autoplay playsinline>
+                            </video>
+                        </div>
+                          </div>
+                    </div>
+                    <div class="takephoto" id="taketake">
+                        <button class="tombol-kamera take-btn" onclick="snapPhoto()">Ambil foto</button>
+                    </div>
+                    <div class="tombol-deteksi">
+                      <label for="inputImage" class="tombol-kamera"> Galeri </label>
+                      <input
+                        style="display: none"
+                        type="file"
+                        id="inputImage"
+                        accept="image/*" 
+                        onchange="renderImage(this)"
+                      />
+                      <button class="tombol-kamera" value="On" id="webcam-control"onclick="getPicture()"  target="_blank">
+                        Buka Kamera
+                      </button>
+                                                                                                                                            
+                    </div>
+                    <div id="overlay">
+                      <div id="prediksi">
+                        <div class="tutup">
+                            <button class="tombol-tutup-prediksi" id="close-modal-btn" onclick="closeBtn()">&#10005;</button>
+                        </div>
+                        <div class="image-popup">
+                        <img id="elemImage" class="d-none" src="" />
+                        <canvas id="canvas" class="d-none"></canvas>
+                        </div>
+                        <div>
+                        <p class="hasil-prediksi" id="elemPrediksi"></p>
+                        </div>
+                        <div class="konten" id="konten">
+                    </div>
+                    </div>
+                  </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="layar-dalam">
+                <div>
+                    <img src="img/logo1.png" width="300px" border-radius="30px">
+                </div>
+
+                <div class="daftar-kontak">
+                    <h5>Kontak Personal</h5>
+                  <ul>
+                    <li>
+                        <a href="https://www.instagram.com/realuppus_rays">Raifvaldhy Jounias Luppus Melatisudra</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/nathanaelmayers">Nathanael Christiadi Davitama</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/akurss">Asep Kurnia</a>
+                    </li>
+                  </ul>
+                    
+                </div>
+                <div class="daftar-kontak">
+                    <h5>Navigasi</h5>
+                  <ul>
+                    <li><a href="#Beranda">Beranda</a></li>
+                    <li><a href="#TentangKami">Tentang Kami </a></li>
+                    <li><a href="#Deteksi">Deteksi Sampah</a></li>
+                  </ul>
+                    
+                </div>
+                <div>
+                    <h5>Alamat</h5>
+                    <h2>Universitas Nurtanio Bandung</h2>
+                    <p>
+                    Jl. Pajajaran No. 219 Bandung Jawa Barat Indonesia
+                </p>
+                </div>
+            </div>
+            <div class="layar-dalam">
+                <div class="copyright">
+                   Copyright &copy; 2024. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+        <script
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"
+              ></script>
+              <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+              <script
+                type="text/javascript"
+                src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"
+              ></script>
+              <script src="javascript.js"></script>
+</body>
+</html>
